@@ -1,28 +1,28 @@
 package conta;
 
-
+import java.util.Scanner;
 import conta.model.Conta;
-import java.util.Scanner; 
-
 import conta.util.Cores;
 
 public class Menu {
 
 	public static void main(String[] args) {
 
-		Conta c1 = new Conta(220903, 0001, 1, "Lucas Casotti", 800f); 
-		c1.setSaldo(5000f);
+		//Testando a Classe Conta
+		Conta c1 = new Conta(220903, 0001, 1, "Lucas Casotti", 1000f); 
+		c1.visualizar();
+		c1.sacar(500f);
+		c1.visualizar();
+		c1.depositar(200);
+		c1.visualizar();
 		
-		System.out.println("Titular: " + c1.getTitular());
-		System.out.println("Saldo: " + c1.getSaldo());
-		
-		
+
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
 		while (true) {
 
-			System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND);
+			System.out.println(Cores.TEXT_PURPLE + Cores.ANSI_BLACK_BACKGROUND);
 			System.out.println("#####################################################");
 			System.out.println("                                                     ");
 			System.out.println("                BANCO TOQ-PAY                		 ");

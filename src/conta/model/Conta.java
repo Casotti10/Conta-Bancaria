@@ -8,39 +8,24 @@ public class Conta {
 	private int tipo;
 	private String titular;
 	private float saldo;
-	
-	// Metodos(comportamentos) 
-	// private - Somente a classe em que foi criada consegue ter acesso para modificar (celular pessoal)
-	// protected - é protegido e pode ser chamado por todas as classes que compõe o pacote package(telefone residencial)
-	// public - Um Método ou Atributo public poderá ser acessado por qualquer classe em qualquer pacote(orelhao)
-	
-	/*Método  da Classe Conta - com todos os parâmetros*/ 
+
+	/* Método da Classe Conta - com todos os parâmetros */
 	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
-		
-	//  This -> classe conta 
-	//	Conta.numero = atributo 
-	//	Numero = 6; 
-	//	this.numero = 6;
-		
-		this.numero = numero;
+		this.numero = numero; // Separar classe de variavel -> this
 		this.agencia = agencia;
 		this.tipo = tipo;
 		this.titular = titular;
 		this.saldo = saldo;
 	}
- 
-		//METODOS
-		//METODOS DE ACESSO 
-	
-	
+
 	// Get - para pegar o preço
 	public int getNumero() {
 		return numero;
 	}
-
 	// Setter para alterar o preço
+
 	public void setNumero(int numero) {
-		this.numero = numero; 
+		this.numero = numero;
 	}
 
 	public int getAgencia() {
@@ -74,12 +59,41 @@ public class Conta {
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
-	
-	//METODOS 
-	//METODOS DE ACESSO 
-	
-	
 
+	public boolean sacar(float valor) {
+		if (this.getSaldo() < valor) {
+			System.out.println("Saldo Insuficiente");
+			return false;
+		}
+
+		this.setSaldo(this.getSaldo() - valor);
+		return true;
+	}
+
+	public void depositar(float valor) {
+		this.setSaldo(this.getSaldo() + valor);
+	}
+
+	public void visualizar () {
+		
+		String tipo = ""; 
+		
+		switch(this.tipo) {
+		case 1: 
+			tipo = "Conta Corrente";
+			break;
+		case 2:
+			tipo = "Conta Poupança";
+			break;
+		}
+		System.out.println("\n\n****************************************************");
+		System.out.println("Dados da conta: ");
+		System.out.println("****************************************************");
+		System.out.println("Numero da Conta: " + this.numero);
+		System.out.println("Agencia : "+ this.agencia); 
+		System.out.println("Tipo da Conta: " + tipo );
+		System.out.println("Titular: "+ this.titular);
+		System.out.println("Saldo: " + this.saldo);
+	}
 
 }
-
