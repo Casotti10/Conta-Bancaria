@@ -1,5 +1,7 @@
 package conta;
 
+
+import conta.model.Conta;
 import java.util.Scanner; 
 
 import conta.util.Cores;
@@ -8,6 +10,13 @@ public class Menu {
 
 	public static void main(String[] args) {
 
+		Conta c1 = new Conta(220903, 0001, 1, "Lucas Casotti", 800f); 
+		c1.setSaldo(5000f);
+		
+		System.out.println("Titular: " + c1.getTitular());
+		System.out.println("Saldo: " + c1.getSaldo());
+		
+		
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
