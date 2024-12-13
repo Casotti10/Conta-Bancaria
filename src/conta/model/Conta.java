@@ -1,6 +1,6 @@
 package conta.model;
 
-public class Conta {
+public abstract class Conta {
 
 	// Atributos / variaveis
 	private int numero;
@@ -17,12 +17,14 @@ public class Conta {
 		this.titular = titular;
 		this.saldo = saldo;
 	}
-
+	
+	
+	//metodos acessores:
 	// Get - para pegar o preço
 	public int getNumero() {
 		return numero;
 	}
-	// Setter para alterar o preço
+	// Set para alterar o preço
 
 	public void setNumero(int numero) {
 		this.numero = numero;
@@ -65,7 +67,6 @@ public class Conta {
 			System.out.println("Saldo Insuficiente");
 			return false;
 		}
-
 		this.setSaldo(this.getSaldo() - valor);
 		return true;
 	}
@@ -76,7 +77,7 @@ public class Conta {
 
 	public void visualizar () {
 		
-		String tipo = ""; 
+		String tipo = "";
 		
 		switch(this.tipo) {
 		case 1: 
